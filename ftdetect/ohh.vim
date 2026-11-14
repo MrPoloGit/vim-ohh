@@ -1,2 +1,2 @@
-" Filetype detection for .ohh .
+" Filetype detection for .ohh.
 autocmd BufRead,BufNewFile *.ohh set filetype=ohh

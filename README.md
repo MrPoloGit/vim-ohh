@@ -11,6 +11,11 @@ Add this directory to `'runtimepath'` before `filetype on`/`syntax on`
 run (e.g. `set runtimepath+=/path/to/vim-ohh` in your `vimrc`). Needs
 `:filetype on` and `:syntax on` enabled.
 
+**Not listed anywhere.** This repo is pushed to
+`github.com/MrPoloGit/vim-ohh`, usable today by any plugin manager that
+takes a plain git URL, but it isn't listed on vim.org, vimawesome, or
+any other curated index, nothing has been submitted anywhere.
+
 ## What's implemented (L0)
 
 - **Filetype detection** (`ftdetect/ohh.vim`): `.ohh` → `ohh`.
