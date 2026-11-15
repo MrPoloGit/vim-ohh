@@ -28,7 +28,7 @@ syn match ohhNoise /\%(:\|,\)/
 syn match ohhKeyMatch /"\%([^"\\]\|\\.\)*"\ze[[:blank:]\r\n]*:/ contains=ohhKey
 syn region ohhKey matchgroup=ohhQuote start=/"/ end=/"\ze[[:blank:]\r\n]*:/ contained
 
-" Enum-valued fields (ohh/registry/enums.json: game_type, bet_type, street,
+" Enum-valued fields (ohh-data/registry/enums.json: game_type, bet_type, street,
 " action) get their VALUE string highlighted distinctly, mirroring
 " tree-sitter-ohh/queries/highlights.scm's #any-of? special-casing and
 " vscode-ohh/syntaxes/ohh.tmLanguage.json's lookbehind-based rule. The

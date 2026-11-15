@@ -34,14 +34,14 @@ any other curated index, nothing has been submitted anywhere.
 ## L1: diagnostics and hover via ohh-ls
 
 No bespoke plugin here, same reasoning as `vim-phh`. Point any general
-LSP client at `../ohh-ls/build/ohh-ls ../ohh/registry` for filetype
+LSP client at `../ohh-ls/build/ohh-ls ../ohh-data/registry` for filetype
 `ohh`. For [vim-lsp](https://github.com/prabirshrestha/vim-lsp):
 
 ```vim
 if executable('ohh-ls')
   au User lsp_setup call lsp#register_server({
       \ 'name': 'ohh-ls',
-      \ 'cmd': {server_info->['/path/to/ohh-ls/build/ohh-ls', '/path/to/ohh/registry']},
+      \ 'cmd': {server_info->['/path/to/ohh-ls/build/ohh-ls', '/path/to/ohh-data/registry']},
       \ 'allowlist': ['ohh'],
       \ 'root_uri': {server_info->lsp#utils#path_to_uri(fnamemodify(lsp#utils#get_buffer_path(), ':p:h'))},
       \ })
@@ -63,7 +63,7 @@ For [coc.nvim](https://github.com/neoclient/coc.nvim):
   "languageserver": {
     "ohh": {
       "command": "/path/to/ohh-ls/build/ohh-ls",
-      "args": ["/path/to/ohh/registry"],
+      "args": ["/path/to/ohh-data/registry"],
       "filetypes": ["ohh"]
     }
   }
@@ -73,7 +73,7 @@ For [coc.nvim](https://github.com/neoclient/coc.nvim):
 ## How this was verified, and two real things testing caught
 
 `test/synid_test.vim` drives real Vim (`vim -N -u NONE -es`) against the
-real corpus (`../ohh/corpus/`), reading back the actual resolved
+real corpus (`../ohh-data/corpus/`), reading back the actual resolved
 highlight group at specific positions via `synID()`/`synstack()`, same
 discipline as `vim-phh`. **19/19 checks pass.**
 

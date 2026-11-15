@@ -41,7 +41,7 @@ function! s:GroupAt(line, col)
 endfunction
 
 " 1. ftdetect + syntax load.
-execute 'edit ' . g:ohh_root . 'ohh/corpus/valid/holdem-cash-pokerstars.ohh'
+execute 'edit ' . g:ohh_root . 'ohh-data/corpus/valid/holdem-cash-pokerstars.ohh'
 call s:Check('ftdetect sets filetype=ohh', &filetype ==# 'ohh')
 call s:Check('syntax item defined (b:current_syntax)', get(b:, 'current_syntax', '') ==# 'ohh')
 
@@ -109,8 +109,8 @@ call s:Check('line 14 col 41 (a ":" inside the "...T07:53:30" timestamp VALUE) i
 
 " 10. Full-corpus sweep: every valid/invalid fixture loads with
 "     filetype=ohh and the syntax file applied, no crash.
-for path in glob(g:ohh_root . 'ohh/corpus/valid/*.ohh', 0, 1)
-      \ + glob(g:ohh_root . 'ohh/corpus/invalid/*.ohh', 0, 1)
+for path in glob(g:ohh_root . 'ohh-data/corpus/valid/*.ohh', 0, 1)
+      \ + glob(g:ohh_root . 'ohh-data/corpus/invalid/*.ohh', 0, 1)
   execute 'edit ' . fnameescape(path)
   call s:Check(fnamemodify(path, ':t') . ': loads with filetype=ohh and syntax applied',
         \ &filetype ==# 'ohh' && get(b:, 'current_syntax', '') ==# 'ohh')
